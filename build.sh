@@ -185,8 +185,8 @@ build_griio() {
 	DESTDIR=${WORKDIR} make -j ${JOBS} install
 }
 
-#build_markdown
-#build_cheetah
+build_markdown
+build_cheetah
 build_libvolk
 build_gnuradio
 build_libiio
