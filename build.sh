@@ -132,7 +132,7 @@ build_cheetah() {
 
 
 build_gnuradio() {
-	git clone --depth 1 https://github.com/gnuradio/gnuradio.git -b maint-3.8 ${WORKDIR}/gnuradio
+	git clone --recurse-submodules --depth 1 https://github.com/gnuradio/gnuradio.git -b maint-3.8 ${WORKDIR}/gnuradio
 
 	mkdir ${WORKDIR}/gnuradio/build-${ARCH}
 	cd ${WORKDIR}/gnuradio/build-${ARCH}
@@ -149,7 +149,7 @@ build_gnuradio() {
 		-DENABLE_GR_TRELLIS:BOOL=OFF \
 		-DENABLE_GR_VOCODER:BOOL=OFF \
 		-DENABLE_GR_FEC:BOOL=OFF \
-		-DENABLE_INTERNAL_VOLK:BOOL=OFF \
+		-DENABLE_INTERNAL_VOLK:BOOL=ON \
 		${WORKDIR}/gnuradio
 
 	make -j ${JOBS} install
@@ -174,7 +174,7 @@ build_griio() {
 
 #build_markdown
 #build_cheetah
-build_libvolk
+#build_libvolk
 build_gnuradio
 build_libiio
 build_libad9361
