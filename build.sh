@@ -174,7 +174,7 @@ build_griio() {
 
 #build_markdown
 #build_cheetah
-#build_libvolk
+build_libvolk
 build_gnuradio
 build_libiio
 build_libad9361
