@@ -193,6 +193,7 @@ build_griio() {
 	DESTDIR=${WORKDIR} make -j ${JOBS} install
 }
 
+build_log4cpp
 build_markdown
 build_cheetah
 build_libvolk
