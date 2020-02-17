@@ -143,6 +143,13 @@ build_cheetah() {
 	python2 setup.py install
 }
 
+build_log4cpp() {
+	git clone https://github.com/orocos-toolchain/log4cpp
+	cd log4cpp
+	cmake ./
+	make -j ${JOBS}
+	DESTDIR=${WORKDIR} make -j ${JOBS} install
+}
 
 build_gnuradio() {
 	git clone --depth 1 https://github.com/gnuradio/gnuradio.git -b maint-3.8 ${WORKDIR}/gnuradio
