@@ -33,6 +33,8 @@ DEPENDENCIES="mingw-w64-${ARCH}-libxml2 \
 	mingw-w64-${ARCH}-fftw \
 	mingw-w64-${ARCH}-libzip \
 	mingw-w64-${ARCH}-python3 \
+	mingw-w64-${ARCH}-python-mako \
+	mingw-w64-${ARCH}-python3-mako \
 	mingw-w64-${ARCH}-glib2 \
 	mingw-w64-${ARCH}-glibmm \
 	mingw-w64-${ARCH}-pkg-config \
