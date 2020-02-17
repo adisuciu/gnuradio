@@ -146,7 +146,8 @@ build_cheetah() {
 build_log4cpp() {
 	git clone https://github.com/orocos-toolchain/log4cpp
 	cd log4cpp
-	cmake ./
+	cmake -G 'Unix Makefiles' \
+	${CMAKE_OPTS} 
 	make -j ${JOBS}
 	DESTDIR=${WORKDIR} make -j ${JOBS} install
 }
