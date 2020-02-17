@@ -11,7 +11,7 @@ matrix:
     fast_finish: true
 
 build_script:
-    - cd C:\projects\gnuradio-mingw
+    - cd C:\projects\gnuradio
     - C:\msys64\usr\bin\bash build.sh
-    - appveyor PushArtifact c:\projects\gnuradio-mingw\dependencies.txt
-    - appveyor PushArtifact c:\projects\gnuradio-mingw\gnuradio-%MINGW_VERSION%.tar.xz
+    - appveyor PushArtifact c:\projects\gnuradio\dependencies.txt
+    - appveyor PushArtifact c:\projects\gnuradiow\gnuradio-%MINGW_VERSION%.tar.xz
