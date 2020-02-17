@@ -33,8 +33,6 @@ DEPENDENCIES="mingw-w64-${ARCH}-libxml2 \
 	mingw-w64-${ARCH}-fftw \
 	mingw-w64-${ARCH}-libzip \
 	mingw-w64-${ARCH}-python3 \
-	mingw-w64-${ARCH}-python-mako \
-	mingw-w64-${ARCH}-python3-mako \
 	mingw-w64-${ARCH}-glib2 \
 	mingw-w64-${ARCH}-glibmm \
 	mingw-w64-${ARCH}-pkg-config \
@@ -69,6 +67,19 @@ pacman -U --noconfirm http://repo.msys2.org/mingw/${ARCH}/mingw-w64-${ARCH}-llvm
 pacman --force --noconfirm -Sy ${DEPENDENCIES}
 
 pacman -U --noconfirm http://repo.msys2.org/mingw/${ARCH}/mingw-w64-${ARCH}-libusb-1.0.21-2-any.pkg.tar.xz 
+
+build_libvolk() {
+	mkdir -p ${WORKDIR}/libvolk/build-${ARCH}
+	cd ${WORKDIR}/libvolk/build-${ARCH}
+
+	wget http://libvolk.org/releases/volk-1.3.tar.gz -O- \
+		| tar xz --strip-components=1 -C ${WORKDIR}/libvolk
+
+	cmake -G 'Unix Makefiles' ${CMAKE_OPTS} ${WORKDIR}/libvolk
+
+	make -j ${JOBS} install
+	DESTDIR=${WORKDIR} make -j ${JOBS} install
+}
 
 build_libiio() {
 	git clone --depth 1 https://github.com/analogdevicesinc/libiio.git ${WORKDIR}/libiio
@@ -134,7 +145,7 @@ build_cheetah() {
 
 
 build_gnuradio() {
-	git clone --recurse-submodules --depth 1 https://github.com/gnuradio/gnuradio.git -b maint-3.8 ${WORKDIR}/gnuradio
+	git clone --depth 1 https://github.com/gnuradio/gnuradio.git -b maint-3.8 ${WORKDIR}/gnuradio
 
 	mkdir ${WORKDIR}/gnuradio/build-${ARCH}
 	cd ${WORKDIR}/gnuradio/build-${ARCH}
@@ -151,7 +162,7 @@ build_gnuradio() {
 		-DENABLE_GR_TRELLIS:BOOL=OFF \
 		-DENABLE_GR_VOCODER:BOOL=OFF \
 		-DENABLE_GR_FEC:BOOL=OFF \
-		-DENABLE_INTERNAL_VOLK:BOOL=ON \
+		-DENABLE_INTERNAL_VOLK:BOOL=OFF \
 		${WORKDIR}/gnuradio
 
 	make -j ${JOBS} install
@@ -176,7 +187,7 @@ build_griio() {
 
 #build_markdown
 #build_cheetah
-#build_libvolk
+build_libvolk
 build_gnuradio
 build_libiio
 build_libad9361
