@@ -156,7 +156,6 @@ build_log4cpp() {
 }
 
 build_gnuradio() {
-	pip3 install mako
 	git clone --recurse-submodules --depth 1 https://github.com/gnuradio/gnuradio.git -b maint-3.8 ${WORKDIR}/gnuradio
 
 	mkdir ${WORKDIR}/gnuradio/build-${ARCH}
