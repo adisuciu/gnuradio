@@ -146,6 +146,7 @@ build_cheetah() {
 build_log4cpp() {
 	git clone https://github.com/orocos-toolchain/log4cpp
 	cd log4cpp
+	sed '27d' include/log4cpp/config-MinGW32.h > temp && mv temp include/log4cpp/config-MinGW32.h
 	cmake -G 'Unix Makefiles' \
 	${CMAKE_OPTS} 
 	make -j ${JOBS}
