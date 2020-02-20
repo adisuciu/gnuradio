@@ -150,7 +150,7 @@ build_log4cpp() {
 	sed '27d' ../include/log4cpp/config-MinGW32.h > temp && mv temp ../include/log4cpp/config-MinGW32.h
 	cmake -G 'Unix Makefiles' \
 	${CMAKE_OPTS} ${WORKDIR}/log4cpp 
-	make -j ${JOBS}
+	make -j ${JOBS} install
 	DESTDIR=${WORKDIR} make -j ${JOBS} install
 }
 
