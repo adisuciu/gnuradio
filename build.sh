@@ -36,7 +36,7 @@ DEPENDENCIES="mingw-w64-${ARCH}-libxml2 \
 	mingw-w64-${ARCH}-glib2 \
 	mingw-w64-${ARCH}-glibmm \
 	mingw-w64-${ARCH}-pkg-config \
-	mingw-w64-${ARCH}-python-mako \
+	mingw-w64-${ARCH}-python3-mako \
 	" \
 
 # Remove dependencies that prevent us from upgrading to GCC 6.2
