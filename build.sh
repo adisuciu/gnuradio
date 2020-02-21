@@ -195,7 +195,7 @@ build_gnuradio() {
 }
 
 build_griio() {
-	git clone --depth 1 https://github.com/analogdevicesinc/gr-iio.git ${WORKDIR}/gr-iio -branch upgrade-3.8
+	git clone --depth 1 https://github.com/analogdevicesinc/gr-iio.git $ -b upgrade-3.8 {WORKDIR}/gr-iio 
 
 	mkdir ${WORKDIR}/gr-iio/build-${ARCH}
 	cd ${WORKDIR}/gr-iio/build-${ARCH}
