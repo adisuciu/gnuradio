@@ -38,6 +38,7 @@ DEPENDENCIES="mingw-w64-${ARCH}-libxml2 \
 	mingw-w64-${ARCH}-glibmm \
 	mingw-w64-${ARCH}-pkg-config \
 	mingw-w64-${ARCH}-orc \
+	glib2 \
 	python3-mako \
 	python3-six \
 	" \
