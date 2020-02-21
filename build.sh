@@ -36,10 +36,12 @@ DEPENDENCIES="mingw-w64-${ARCH}-libxml2 \
 	mingw-w64-${ARCH}-glib2 \
 	mingw-w64-${ARCH}-glibmm \
 	mingw-w64-${ARCH}-pkg-config \
-	python3-mako \
-	mingw-w64-${ARCH}-python-six \
-	python3-six \
+	mingw-w64-${ARCH}-orc \
 	" \
+#	python3-mako \
+#	mingw-w64-${ARCH}-python-six \
+#	python3-six \
+
 
 # Remove dependencies that prevent us from upgrading to GCC 6.2
 pacman -Rs --noconfirm \
@@ -81,7 +83,7 @@ build_libvolk() {
 
 	cmake -G 'Unix Makefiles' \
 	       	${CMAKE_OPTS} \
-		-DCMAKE_C_FLAGS=-fno-asynchronous-unwind-tables \
+#		-DCMAKE_C_FLAGS=-fno-asynchronous-unwind-tables \
 		${WORKDIR}/libvolk
 
 	make -j ${JOBS} install
