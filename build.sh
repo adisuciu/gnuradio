@@ -83,9 +83,9 @@ build_libvolk() {
 
 	cmake -G 'Unix Makefiles' \
 	       	${CMAKE_OPTS} \
+		-DCMAKE_C_FLAGS=-fno-asynchronous-unwind-tables \
 		${WORKDIR}/libvolk
 
-#		-DCMAKE_C_FLAGS=-fno-asynchronous-unwind-tables \
 
 	make -j ${JOBS} install
 	DESTDIR=${WORKDIR} make -j ${JOBS} install
