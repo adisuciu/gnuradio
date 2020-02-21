@@ -75,7 +75,8 @@ build_libvolk() {
 	mkdir -p ${WORKDIR}/libvolk/build-${ARCH}
 	cd ${WORKDIR}/libvolk/build-${ARCH}
 
-	wget http://libvolk.org/releases/volk-1.3.tar.gz -O- \
+	
+	wget https://www.libvolk.org/releases/volk-2.2.0.tar.gz -O- \
 		| tar xz --strip-components=1 -C ${WORKDIR}/libvolk
 
 	cmake -G 'Unix Makefiles' ${CMAKE_OPTS} ${WORKDIR}/libvolk
@@ -176,7 +177,7 @@ build_gnuradio() {
 		-DENABLE_GR_VOCODER:BOOL=OFF \
 		-DENABLE_GR_FEC:BOOL=OFF \
 		-DENABLE_GR_LOG=OFF \
-		-DENABLE_INTERNAL_VOLK:BOOL=ON \
+		-DENABLE_INTERNAL_VOLK:BOOL=OFF \
 		${WORKDIR}/gnuradio
 
 	make -j ${JOBS} install
