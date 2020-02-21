@@ -185,7 +185,9 @@ build_gnuradio() {
 		-DENABLE_GR_VOCODER:BOOL=OFF \
 		-DENABLE_GR_FEC:BOOL=OFF \
 		-DENABLE_GR_LOG=OFF \
-		-DENABLE_INTERNAL_VOLK:BOOL=OFF \
+		-DENABLE_DOXYGEN:BOOL=OFF \
+		-DENABLE_INTERNAL_VOLK:BOOL=ON \
+		-DCMAKE_C_FLAGS=-fno-asynchronous-unwind-tables \
 		${WORKDIR}/gnuradio
 
 	make -j ${JOBS} install
@@ -208,7 +210,7 @@ build_griio() {
 	DESTDIR=${WORKDIR} make -j ${JOBS} install
 }
 
-build_libvolk
+#build_libvolk
 build_log4cpp
 build_markdown
 build_cheetah
