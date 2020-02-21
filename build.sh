@@ -239,13 +239,13 @@ build_griio
 build_grscopy
 
 # Fix DLLs installed in the wrong path
-mv ${WORKDIR}/msys64/${MINGW_VERSION}/lib/qwt.dll \
-	${WORKDIR}/msys64/${MINGW_VERSION}/lib/qwtpolar.dll \
-	${WORKDIR}/msys64/${MINGW_VERSION}/bin
+#mv ${WORKDIR}/msys64/${MINGW_VERSION}/lib/qwt.dll \
+#	${WORKDIR}/msys64/${MINGW_VERSION}/lib/qwtpolar.dll \
+#	${WORKDIR}/msys64/${MINGW_VERSION}/bin
 
-rm -rf ${WORKDIR}/msys64/${MINGW_VERSION}/doc \
-	${WORKDIR}/msys64/${MINGW_VERSION}/share/doc \
-	${WORKDIR}/msys64/${MINGW_VERSION}/lib/*.la
+#rm -rf ${WORKDIR}/msys64/${MINGW_VERSION}/doc \
+#	${WORKDIR}/msys64/${MINGW_VERSION}/share/doc \
+#	${WORKDIR}/msys64/${MINGW_VERSION}/lib/*.la
 
 tar cavf ${WORKDIR}/scopy-${MINGW_VERSION}-build-deps.tar.xz -C ${WORKDIR} msys64
 
