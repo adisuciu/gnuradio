@@ -12,4 +12,4 @@ build_script:
     - cd C:\projects\gnuradio
     - C:\msys64\usr\bin\bash build.sh
     - appveyor PushArtifact c:\projects\gnuradio\dependencies.txt
-    - appveyor PushArtifact c:\projects\gnuradiow\gnuradio-%MINGW_VERSION%.tar.xz
+    - appveyor PushArtifact c:\projects\gnuradio\gnuradio-%MINGW_VERSION%.tar.xz

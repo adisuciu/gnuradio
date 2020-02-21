@@ -247,6 +247,6 @@ build_grscopy
 #	${WORKDIR}/msys64/${MINGW_VERSION}/share/doc \
 #	${WORKDIR}/msys64/${MINGW_VERSION}/lib/*.la
 
-tar cavf ${WORKDIR}/scopy-${MINGW_VERSION}-build-deps.tar.xz -C ${WORKDIR} msys64
+tar cavf ${WORKDIR}/gnuradio-${MINGW_VERSION}.tar.xz -C ${WORKDIR} msys64
 
 echo -n ${DEPENDENCIES} > ${WORKDIR}/dependencies.txt
