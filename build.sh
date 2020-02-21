@@ -210,8 +210,7 @@ build_griio() {
 	DESTDIR=${WORKDIR} make -j ${JOBS} install
 }
 
-build_grscopy
-{
+build_grscopy() {
 	git clone --depth 1 https://github.com/analogdevicesinc/gr-scopy/ ${WORKDIR}/gr-scopy
 
 	mkdir ${WORKDIR}/gr-scopy/build-${ARCH}
