@@ -195,7 +195,7 @@ build_gnuradio() {
 }
 
 build_griio() {
-	git clone --depth 1 https://github.com/analogdevicesinc/gr-iio.git ${WORKDIR}/gr-iio
+	git clone --depth 1 https://github.com/analogdevicesinc/gr-iio.git ${WORKDIR}/gr-iio -branch upgrade-3.8
 
 	mkdir ${WORKDIR}/gr-iio/build-${ARCH}
 	cd ${WORKDIR}/gr-iio/build-${ARCH}
@@ -210,6 +210,25 @@ build_griio() {
 	DESTDIR=${WORKDIR} make -j ${JOBS} install
 }
 
+build_grscopy
+{
+	git clone --depth 1 https://github.com/analogdevicesinc/gr-scopy/ ${WORKDIR}/gr-scopy
+
+	mkdir ${WORKDIR}/gr-scopy/build-${ARCH}
+	cd ${WORKDIR}/gr-scopy/build-${ARCH}
+
+	# -D_hypot=hypot: http://boost.2283326.n4.nabble.com/Boost-Python-Compile-Error-s-GCC-via-MinGW-w64-td3165793.html#a3166757
+	cmake -G 'Unix Makefiles' \
+		${CMAKE_OPTS} \
+		${WORKDIR}/gr-scopy
+
+#		-DCMAKE_CXX_FLAGS="-D_hypot=hypot" \
+
+	make -j ${JOBS} install
+	DESTDIR=${WORKDIR} make -j ${JOBS} install
+
+}
+
 #build_libvolk
 build_log4cpp
 build_markdown
@@ -218,6 +237,7 @@ build_gnuradio
 build_libiio
 build_libad9361
 build_griio
+build_grscopy
 
 # Fix DLLs installed in the wrong path
 mv ${WORKDIR}/msys64/${MINGW_VERSION}/lib/qwt.dll \
