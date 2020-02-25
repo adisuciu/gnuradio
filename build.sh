@@ -164,6 +164,7 @@ build_log4cpp() {
 	${CMAKE_OPTS} ${WORKDIR}/log4cpp 
 	make -j ${JOBS} install
 	DESTDIR=${WORKDIR} make -j ${JOBS} install
+	cp ${WORKDIR}/lib/liblog4cpp.dll ${WORKDIR}/bin
 }
 
 build_gnuradio() {
