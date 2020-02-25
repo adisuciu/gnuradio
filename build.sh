@@ -164,7 +164,8 @@ build_log4cpp() {
 	${CMAKE_OPTS} ${WORKDIR}/log4cpp 
 	make -j ${JOBS} install
 	DESTDIR=${WORKDIR} make -j ${JOBS} install
-	cp ${WORKDIR}/lib/liblog4cpp.dll ${WORKDIR}/bin
+	# ???
+	cp ${WORKDIR}/msys64/${MINGW_VERSION}/lib/liblog4cpp.dll ${WORKDIR}/msys64/${MINGW_VERSION}/bin
 }
 
 build_gnuradio() {
