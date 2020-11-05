@@ -22,6 +22,7 @@ DEPENDENCIES="
 	mingw-w64-${ARCH}-cmake \
 	mingw-w64-${ARCH}-fftw \
 	mingw-w64-${ARCH}-orc \
+	mingw-w64-${ARCH}-boost \
 	python3 \
 	python3-mako \
 	python3-six \
@@ -29,7 +30,7 @@ DEPENDENCIES="
 
 $CC --version
 pacman --needed --noconfirm -Sy ${DEPENDENCIES}
-pacman -U --noconfirm http://repo.msys2.org/mingw/$ARCH/mingw-w64-$ARCH-boost-1.72.0-3-any.pkg.tar.zst
+#pacman -U --noconfirm http://repo.msys2.org/mingw/$ARCH/mingw-w64-$ARCH-boost-1.72.0-3-any.pkg.tar.zst
 
 build_log4cpp() {
 	git clone https://github.com/orocos-toolchain/log4cpp ${WORKDIR}/log4cpp
